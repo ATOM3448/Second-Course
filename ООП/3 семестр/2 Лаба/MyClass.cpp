@@ -323,15 +323,15 @@ namespace myNameSpaces
 			throw logic_error{"Class MyMatrix, objects are not compatible for multiplication for id" + to_string(id)};
 		}
 
-		double* newData = new double[rows*cols];
+		double* newData = new double[rows*_object.getCols()];
 		for (int i = 0; i < rows; i++)
 		{
 			for (int j = 0; j < _object.getCols(); j++)
 			{
-				newData[i*cols + j] = 0;
+				newData[i*_object.getCols() + j] = 0;
 				for (int k = 0; k < cols; k++)
 				{
-					newData[i*cols + j] += (data[i*cols + k] * _object[k][j]);
+					newData[i*_object.getCols() + j] += (data[i*cols + k] * _object[k][j]);
 				}
 			}
 		}
