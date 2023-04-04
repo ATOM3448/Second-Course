@@ -220,7 +220,7 @@ namespace myNameSpaces
 	}
 
 	//Переопределение оператора <<
-	ostream& operator<<(ostream& os, const MyMatrix& _mat)
+	ostream& operator<<(ostream& _os, const MyMatrix& _mat)
 	{
 		for (int i = 0; i < _mat.rows; i++)
 		{
