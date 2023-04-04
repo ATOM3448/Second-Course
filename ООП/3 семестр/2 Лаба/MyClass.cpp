@@ -258,19 +258,19 @@ namespace myNameSpaces
 	//Переопределение оператора =
 	MyMatrix& MyMatrix::operator=(const MyMatrix& _object)
 	{
-		if ((rows == _object.getRows()) && (cols == _object.getCols()))
+		if (!((rows == _object.getRows()) && (cols == _object.getCols())))
 		{
 			delete[] data;
 			createMatrix(_object.getRows(), _object.getCols(), _object.data);
+
+			return *this;
 		}
-		else
+
+		for (int i = 0; i < rows; i++)
 		{
-			for (int i = 0; i < rows; i++)
+			for (int j = 0; j < cols; j++)
 			{
-				for (int j = 0; j < cols; j++)
-				{
-					data[i*cols + j] = _object.data[i*cols + j];
-				}
+				data[i*cols + j] = _object.data[i*cols + j];
 			}
 		}
 				
